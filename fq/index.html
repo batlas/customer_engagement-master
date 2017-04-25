@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawSeriesChart);
+
+    function drawSeriesChart() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Task', 'Frequency', 'Frustration', 'Task', 'Users'],
+        ['Research Products',  8.25,  2.25, 'Research new products',  4],
+        ['Purchase Products',  0, 0,  'Purchase new products', 0],
+        ['Register',  0,   0, 'Register for support', 0],
+        ['Use Products',  10, 2,  'Use IBM products', 4],
+        ['Training',  2, 3, 'Take training or certification classes',  3],
+        ['Read', 10, 5, 'Read support documents', 2],
+        ['Performance', 7, 9, 'Analyze performance data', 1],
+        ['Maintenance', 1.5, 3, 'Perform preventative maintenance', 2],
+        ['Drivers', 2.5,  2.2,   'Download drivers and updates', 4],
+		['Install', 5,  3.5,   'Install products or updates', 4],
+        ['Troubleshoot', 7.3, 5.1,  'Troubleshoot a problem', 7],
+		['Contact IBM', 0, 0, 'Contact IBM', 0],
+        ['Tickets', 3.2, 5, 'Create support tickets', 5],
+        
+
+      ]);
+
+      var options = {
+        title: 'Task Frequency by Task Frustration',
+		titleTextStyle: {fontName: 'arial', fontSize: 18 },
+        hAxis: {title: 'Frequency',  maxValue: 10},
+        vAxis: {title: 'Frustration',  maxValue: 10},
+		legend: {position: 'none'},
+        bubble: {textStyle: {fontSize: 11}},
+		
+      };
+
+      var chart = new google.visualization.BubbleChart(document.getElementById('series_chart_div'));
+      chart.draw(data, options);
+    }
+    </script>
+  </head>
+  <body>
+    <div id="series_chart_div" style="width: 1100px; height: 700px;"></div>
+    <div>
+    	<p style="margin-left:50px; margin-right:50px;">
+        	Data is based on survey feedback from 7 IBM Support customers.  Participants were asked to select the tasks they perform as part of their job and then to rate the frequency
+            and frustration of those tasks.  The frequency scale was from 0-10 where 0 = Never, 10 = Everyday.  The frustration scale was also from 0-10 where
+            0 = Not frustrating at all, 10 = Extremely frustrating. 
+    	</p>
+    </div>
+  </body>
+</html>
+
